@@ -1,0 +1,91 @@
+<a href="#main-content" class="skip-to-main-link">{{lang 'header.skip_to_main'}}</a>
+{{#if banners.top}}
+<div class="banners" data-banner-location="top">
+    {{#each (limit banners.top_metadata 1)}}
+    <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-banner-id="{{this.banner-name}}">
+        <div data-event-type="promotion-click">
+            {{{this.content}}}
+        </div>
+    </div>
+    {{/each}}
+</div>
+{{/if}}
+<header class="header" role="banner">
+    <a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu">
+        <span class="mobileMenu-toggleIcon">Toggle menu</span>
+    </a>
+    {{> components/common/navigation}}
+<div class="mheader">
+    {{#if page_type '===' 'default'}}
+        <h1 class="header-logo header-logo--{{theme_settings.logo-position}}">
+            {{> components/common/store-logo}}
+        </h1>
+    {{else}}
+        <div class="header-logo header-logo--{{theme_settings.logo-position}}">
+            {{> components/common/store-logo}}
+        </div>
+    {{/if}}
+    <div class="navPages-container" id="menu" data-menu>
+        {{> components/common/navigation-menu}}
+    </div>
+</div>
+    {{{region name="header_navigation_bottom--global"}}}
+</header>
+{{{region name="header_bottom--global"}}}
+{{{region name="header_bottom"}}}
+
+<style>
+  
+@media (min-width: 1000px) {
+    
+.mheader {
+    display: flex !important;
+    margin-bottom: 10px !important;
+    margin-top: 20px !important;
+    justify-content: center !important;
+}
+    .header-logo {
+        margin: unset !important;
+    }
+.header-logo-image-container {
+    top: 8px !important;
+    min-height: 20% !important;
+}
+
+
+h1.header-logo.header-logo--left {
+        /* margin-right: 165px !important; */
+        margin-left: 200px !important;
+        position: absolute;
+        WIDTH: 15% !important;
+        padding-right: 59px !important;
+    }
+    ul.navPages-list {
+    margin-left: 168px !important;
+}
+}
+.navUser {
+    background-color: #ffffff !important;
+    padding: 0 9.5rem !important;
+    position: relative;
+    right: auto;
+    top: auto;
+    -webkit-transform: none;
+    transform: none;
+    z-index: 50;
+}
+.navUser-action {
+    color: #000 !important;
+    font-weight: 700;
+    padding: 1rem .78571rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.navUser-action:hover {
+    color: #000 !important;
+}
+.navUser-or {
+    color: #000 !important;
+    cursor: default;
+}
+</style>
